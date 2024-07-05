@@ -1,15 +1,18 @@
 #encoding=utf-8
-def repeat(n):
-    def decorator(func):
-        def wrapper(*args, **kwargs):
-            for _ in range(n):
-                result = func(*args, **kwargs)
-            return result
-        return wrapper
-    return decorator
+from time import time
 
-@repeat(3)
-def greet(name):
-    print(f"Hello, {name}!")
 
-greet("Alice")
+def time_counter(f):
+    def wrapper():
+        t1 = time()
+        f()
+        t2 = time() - t1
+        return print(f"运行时间：{t2}")
+    return wrapper
+
+
+# @time_counter
+def mainloop(n: str):
+    print(n)
+
+mainloop()
