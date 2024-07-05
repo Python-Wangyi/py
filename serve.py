@@ -101,5 +101,5 @@ class ChatServer(threading.Thread):
             t.start()
         self.s.close()
 if __name__ == '__main__':
-    cs_erver = ChatServer()
-cs_erver.start()
+    c_server = ChatServer()
+c_server.start()
