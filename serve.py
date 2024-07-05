@@ -7,7 +7,7 @@ import os.path
 import sys
 
 
-IP = '127.0.0.1'
+IP = '192.168.31.147'
 PORT = 9999     # 端口
 messages = queue.Queue()
 users = []   # 0:userName 1:connection
