@@ -63,7 +63,8 @@ class ChatServer(threading.Thread):
             conn.close()
 
 # 将地址与数据（需发送给客户端）存入messages队列。
-    def Load(self, data, addr):
+    @staticmethod
+    def Load(data, addr):
         lock.acquire()
         try:
             messages.put((addr, data))
@@ -71,7 +72,8 @@ class ChatServer(threading.Thread):
             lock.release()
 
     # 服务端在接受到数据后，会对其进行一些处理然后发送给客户端，如下图，对于聊天内容，服务端直接发送给客户端，而对于用户列表，便由json.dumps处理后发送。
-    def sendData(self): # 发送数据
+    @staticmethod
+    def sendData(): # 发送数据
         while  True:
             if not messages.empty():
                 message = messages.get()
